@@ -1,6 +1,7 @@
 package demoqa.pages;
 
 import demoqa.core.BasePage;
+import demoqa.pages.alertsFrameWindows.AlertsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,5 +23,14 @@ public class SidePanel extends BasePage {
         click(login,0,100);// scroll
         return new LoginPage(driver, wait);
 
+    }
+
+    @FindBy(xpath = "//span[.='Alerts']")
+    WebElement alerts;
+
+
+    public AlertsPage selectAlerts() {
+        click(alerts,0,100);// scroll
+        return new AlertsPage(driver, wait);
     }
 }
