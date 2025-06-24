@@ -48,11 +48,9 @@ public class AlertsPage extends BasePage {
 
     public AlertsPage confirmBoxAlert() {
         click(confirmBoxButton);
-        // Ожидаем появления alert и получаем его
         Alert alert = new WebDriverWait(driver, Duration.ofSeconds(1))
                 .until(ExpectedConditions.alertIsPresent());
-        alert.accept(); // Нажимаем OK
-        // Проверка текста после подтверждения
+        alert.accept();
         new WebDriverWait(driver, Duration.ofSeconds(1))
                 .until(ExpectedConditions.visibilityOf(confirmResult));
         Assert.assertEquals(confirmResult.getText(), "You selected Ok");
